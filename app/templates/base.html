@@ -1,0 +1,280 @@
+{% extends 'bootstrap/base.html' %}
+{% block html_attribs %} lang="zh-CN" {% endblock %}
+
+
+{% block style %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/base.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#" style="font-size: 20px; padding-top: 20px;">测试中心</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse" style="float: left">
+					<ul class="clear">
+						<li class="first"><a href="/testhome/index">QA—Home</a></li>
+						<li>
+							<span class="Darrow"></span>
+							<a href="#">统计平台</a>
+							<dl>
+								<dt><span class="arrow"></span></dt>
+								<dd><a href="/testhome/search">邮件报警统计</a></dd>
+								<dd><a href="/testhome/search_code">代码发布统计</a></dd>
+							</dl>
+						</li>
+
+						<li>
+							<span class="Darrow"></span>
+							<a href="#">平台工具</a>
+							<dl>
+								<dt><span class="arrow"></span></dt>
+								<dd><a target="_blank" rel="nofollow"
+									   href="http://testlink.i.beebank.com/">TestLink平台</a>
+								</dd>
+								<dd><a target="_blank" rel="nofollow"
+									   href="http://redmine.i.beebank.com/">Redmine平台</a>
+								</dd>
+								<dd><a target="_blank" rel="nofollow"
+									   href="http://172.16.22.69:8080/jenkins/">Jenkins平台</a>
+								</dd>
+								<dd><a href="/testhome/Xml_Excel">Xml与Excel互转</a>
+								</dd>
+							</dl>
+						</li>
+
+
+						<li>
+							<span class="Darrow"></span>
+							<a href="#">日报-周报</a>
+							<dl>
+								<dt><span class="arrow"></span></dt>
+								<dd><a href="/testhome/daily">日报管理系统</a></dd>
+								<dd><a href="/testhome/weekly">周报管理系统</a></dd>
+								<dd><a href="/testhome/quarter">季度考察管理</a></dd>
+							</dl>
+						</li>
+						<li>
+							<span class="Darrow"></span>
+							<a href="#">文档管理</a>
+							<dl>
+								<dt><span class="arrow"></span></dt>
+								<dd><a href="#">文档管理--1</a></dd>
+								<dd><a href="#">文档管理--2</a></dd>
+								<dd><a href="#">文档管理--3</a></dd>
+							</dl>
+						</li>
+						<li>
+							<span class="Darrow"></span>
+							<a href="#">日志系统</a>
+							<dl>
+								<dt><span class="arrow"></span></dt>
+								<dd><a href="#">查看日志--1</a></dd>
+								<dd><a href="#">查看日志--2</a></dd>
+								<dd><a href="#">查看日志--3</a></dd>
+							</dl>
+						</li>
+						<li class="first" style="width: 100px"><a href="/testhome">退出</a></li>
+					</ul>
+				</div>
+				<div class="navbar-header" style="float: left; width: 15%">
+					<a class="navbar-brand" href="#" style="font-size: 15px;">当前用户：{{ u }}</a>
+				</div>
+			</div>
+		</nav>
+
+	{% endblock %}
+
+	{% block content %}
+
+		{% block page_content %}
+
+		{% endblock %}
+
+	{% endblock %}
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.clear:after {
+			clear: both;
+			content: ".";
+			display: block;
+			height: 0;
+			visibility: hidden;
+		}
+
+		ul {
+			margin: 10px;
+		}
+
+		li {
+			width: 14%;
+			list-style: none;
+			float: left;
+			border-right: 1px solid #2E3235;
+			position: relative;
+			background: #555D5F;
+		}
+
+		li:hover {
+			background: #3E4245;
+			-moz-transition: background 1s ease-out;
+			-webkit-transition: background 1s ease-out;
+		}
+
+		li a {
+			display: block;
+			height: 40px;
+			line-height: 40px;
+			padding: 0 30px;
+			font-size: 12px;
+			color: #fff;
+			text-shadow: 0px -1px 0px #000;
+			text-decoration: none;
+			white-space: nowrap;
+			border-left: 1px solid #999E9F;
+			border-top: 1px solid #999E9F;
+			-moz-border-top-left-radius: 2px;
+			-webkit-border-top-left-radius: 2px;
+			z-index: 100;
+		}
+
+		li > a {
+			position: relative;
+		}
+
+		li.first a {
+			-moz-border-radius-topleft: 4px;
+			-moz-border-radius-bottomleft: 4px;
+			-webkit-border-top-left-radius: 4px;
+			-webkit-border-bottom-left-radius: 4px;
+		}
+
+		li.last {
+			border-right: 0 none;
+		}
+
+		dl {
+			position: absolute;
+			display: block;
+			top: 40px;
+			left: -25px;
+			width: 90px;
+			background: #222222;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-webkit-box-shadow: 1px 1px 3px #292929;
+			-moz-box-shadow: 1px 1px 3px #292929;
+			z-index: 10;
+		}
+
+		li:hover dl {
+			top: 50px;
+			display: block;
+			width: 145px;
+			padding: 10px;
+		}
+
+		dl a {
+			background: transparent;
+			border: 0 none;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-transition: background 0.5s ease-out;
+			-webkit-transition: background 0.5s ease-out;
+			z-index: 20;
+		}
+
+		dl a:hover {
+			color: #FFF;
+			background: #989E8F;
+			-moz-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+			-webkit-transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+		}
+
+		dd {
+			margin-top: -40px;
+			opacity: 0;
+			width: 130px;
+			-webkit-transition-property: all;
+			-moz-transition-property: all;
+		}
+
+		li:hover dd {
+			margin-top: 0;
+			opacity: 1;
+		}
+
+		li dd:nth-child(1) {
+			-webkit-transition-duration: 0.1s;
+			-moz-transition-duration: 0.1s;
+		}
+
+		li dd:nth-child(2) {
+			-webkit-transition-duration: 0.2s;
+			-moz-transition-duration: 0.2s;
+		}
+
+		li dd:nth-child(3) {
+			-webkit-transition-duration: 0.3s;
+			-moz-transition-duration: 0.3s;
+		}
+
+		li dd:nth-child(4) {
+			-webkit-transition-duration: 0.4s;
+			-moz-transition-duration: 0.4s;
+		}
+
+		li dd:nth-child(4) {
+			-webkit-transition-duration: 0.5s;
+			-moz-transition-duration: 0.5s;
+		}
+
+		dt {
+			display: none;
+			margin-top: -25px;
+			padding-top: 15px;
+			height: 10px;
+		}
+
+		li:hover dt {
+			display: block;
+		}
+
+		.Darrow {
+			float: right;
+			margin: 18px 10px 0 0;
+			border-width: 5px;
+			border-color: #FFF transparent transparent transparent;
+			border-style: solid;
+			width: 0;
+			height: 0;
+			line-height: 0;
+			overflow: hidden;
+
+			cursor: pointer;
+
+			text-shadow: 0px -1px 0px #000;
+
+			-webkit-box-shadow: 0px -1px 0px #000;
+			-moz-box-shadow: 0px -1px 0px #000;
+		}
+
+		.arrow {
+			margin: 0 auto;
+			margin-top: -5px;
+			display: block;
+			width: 10px;
+			height: 10px;
+			background: #222222;
+			-webkit-transform: rotate(45deg);
+			-moz-transform: rotate(45deg);
+		}
+	</style>
+{% endblock %}

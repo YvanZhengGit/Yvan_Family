@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - jenkins项目管理
+	<script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.base64.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/tableExport.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/html2canvas.js') }}"></script>
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/showJenkins.css') }}"/>
+	<table id="tableID" class="table" style="margin-top: 100px">
+		<tr>
+			<th>选择</th>
+			<th>名字</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+			<th><input type="checkbox" id=""></th>
+			<th>jenkins项目名字</th>
+			<th><a href="/testhome/execute">执行</a></th>
+		</tr>
+	</table>
+{% endblock %}

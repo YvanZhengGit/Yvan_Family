@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 代码发布查询
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/searchcode.css') }}"/>
+	<h1>代码发布查询</h1>
+	<form method="post">
+		请输入起始年份：{{ form.startyear() }}
+		请输入终止年份：{{ form.endyear() }}<br><br>
+		请输入起始月份：{{ form.startmonth() }}
+		请输入终止月份：{{ form.endmonth() }}<br><br>
+		{{ form.submit() }}
+	</form>
+{% endblock %}

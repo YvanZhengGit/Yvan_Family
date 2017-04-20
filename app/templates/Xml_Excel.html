@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 转化工具
+{% endblock %}
+
+{% block content %}
+
+	<iframe id="framed" style="background: url(../static/icon/bj3.jpeg) no-repeat; background-size:100%; margin-top: 7%;" width="100%" height="600px" text-align="center"
+			content="revealTrans(Duration=3,Transition=5)"
+			srcdoc="
+
+			<a class='sel_btn' href='/testhome/selupload' style='height: 29px;
+			margin: 20% 0 0 23%;
+			line-height: 26px;
+			border: 2px #26bbdb dotted;
+			border-radius:3px;
+			padding:10px;
+			border-radius: 10px;
+			color: #fff;
+			display: inline-block;
+			text-decoration: none;
+			font-size: 32px;
+			outline: none;'>excel—>xml转换</a>
+
+			<a href='/testhome/seluploadexcel' style='height: 29px;
+			margin: 20% 0 0 10%;
+			line-height: 26px;
+			border: 2px #26bbdb dotted;
+			padding:10px;
+			border-radius: 10px;
+			color: #fff;
+			display: inline-block;
+			text-decoration: none;
+			font-size: 32px;
+			outline: none;'>xml—>excel转换</a>
+	">
+	</iframe>
+{% endblock %}

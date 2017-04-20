@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+	测试中心 - 日报
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='daily/daily.css') }}"/>
+	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<div id="Container">
+		<div id="Header">
+			<div id="logo"></div>
+		</div>
+		<div id="Content">
+			<div id="Content-Left">
+				<a style="margin: 20px 0 0 20px" href="/testhome/addWeekly">填写周报管理</a></br>
+				<a style="margin: 20px 0 0 20px" href="/testhome/showWeekly">查看周报管理</a>
+			</div>
+			<div id="Content-Main" style="text-align: center;">
+				<form action="/testhome/update_weekly" method="post">
+					<h3>更新周报</h3>
+					<input name="id" type="hidden" value="{{ info.id }}"></br></br>
+					周报名称：<input name="weeklyName" type="type" value="{{ info.weeklyName }}"></br></br>
+					<textarea id="weeklycont" name="weeklyCont" rows="10" cols="80">{{ info.weeklyCont }}</textarea></br></br>
+					<input type="submit" class="btn btn-success" value="提交">
+				</form>
+			</div>
+		</div>
+		<div class="Clear"></div>
+	</div>
+
+{% endblock %}

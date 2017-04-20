@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 邮件报警
+{% endblock %}
+{% block content %}
+	<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.base64.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/tableExport.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/html2canvas.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/show.css') }}"/>
+	<table id="tableID" class="table" style="margin-top: 50px;">
+		<tr>
+			<th colspan="11"><a href="#"
+								onclick="$('#tableID').tableExport({type:'excel',escape:'false',filename:'(export)'});"><span
+					style="font-size: 18px;">单击下载</span></a></th>
+		</tr>
+		<tr>
+			<th>日期</th>
+			<th>业务线</th>
+			<th>严重报警</th>
+			<th>错误报警</th>
+			<th>加载时长</th>
+			<th>错误率</th>
+			<th>其他</th>
+			<th>总计</th>
+		</tr>
+		{% for info in infos %}
+			<tr>
+				<td>{{ info.newtime }}</td>
+				<td>{{ info.emailname }}</td>
+				<td>{{ info.bj1 }}</td>
+				<td>{{ info.bj2 }}</td>
+				<td>{{ info.bj3 }}</td>
+				<td>{{ info.bj4 }}</td>
+				<td>{{ info.bj5 }}</td>
+				<td>{{ info.bj1 + info.bj2 + info.bj3 + info.bj4 + info.bj5 }}</td>
+			</tr>
+		{% endfor %}
+		<tr>
+			<td>{{ _t.time }}</td>
+			<td>业务汇总</td>
+			<td>{{ num.bj1 }}</td>
+			<td>{{ num.bj2 }}</td>
+			<td>{{ num.bj3 }}</td>
+			<td>{{ num.bj4 }}</td>
+			<td>{{ num.bj5 }}</td>
+			<td>{{ num.bj1 + num.bj2 + num.bj3 + num.bj4 + num.bj5 }}</td>
+		</tr>
+		<tr>
+			<td colspan="8">
+				<div class="pagination">
+					<div class="row-fluid">
+						<div class="span3 offset2" style="float: left; padding-right: 20px">
+							{% if pagination.has_prev %}
+								<a href="{{ pagination.prev_num }}">上一页</a>
+							{% endif %}
+						</div>
+						<div class="span3" style="float: left; padding-right: 20px">
+							<a href="">当前页: {{ pagination.page }} in {{ pagination.pages }}.</a>
+						</div>
+						<div class="span3" style="float: left; padding-right: 20px">
+							{{ pagination.links }}
+							{% if pagination.has_next %}
+								<a href="{{ pagination.next_num }}">下一页</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+
+{% endblock %}

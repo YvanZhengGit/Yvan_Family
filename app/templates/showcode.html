@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 代码发布
+{% endblock %}
+{% block content %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/showcode.css') }}"/>
+	<script src="http://libs.baidu.com/jquery/1.10.0/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/jquery.base64.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/tableExport.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static',filename='js/html2canvas.js') }}"></script>
+	<table id="tableID" class="table" style="margin-top: 50px">
+		<tr>
+			<th colspan="11"><a href="#"
+								onclick="$('#tableID').tableExport({type:'excel',escape:'false',filename:'(export)'});"><span
+					style="font-size: 18px;">单击下载</span></a></th>
+		</tr>
+		<tr>
+			<th>发布日期</th>
+			<th>教育贷</th>
+			<th>催收</th>
+			<th>计信核算</th>
+			<th>车贷</th>
+			<th>彗星业务</th>
+			<th>风控</th>
+			<th>彗星财务</th>
+			<th>运维</th>
+			<th>支付</th>
+			<th>房贷</th>
+			<th>五星阿姨</th>
+		</tr>
+		{% for info in infos %}
+			<tr>
+				<td>{{ info.name }}</td>
+				{% for i in info.result %}
+					<td>{{ i.bjsl }}</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		<tr>
+			<td>代码数汇总</td>
+			{% for n in hz %}
+				<td>{{ n }}</td>
+			{% endfor %}
+		</tr>
+	</table>
+{% endblock %}

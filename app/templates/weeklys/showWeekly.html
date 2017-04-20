@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block title %}
+	测试中心 - 日报
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='daily/daily.css') }}"/>
+	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static',filename='daily/jquery-1.12.3.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='daily/datedropper.min.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static',filename='daily/datedropper.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static',filename='daily/timedropper.min.css') }}">
+
+
+	<div id="Container">
+		<div id="Header">
+			<div id="logo"></div>
+		</div>
+		<div id="Content">
+			<div id="Content-Left">
+				<a style="margin: 20px 0 0 20px" href="/testhome/addWeekly">填写周报管理</a></br>
+				<a style="margin: 20px 0 0 20px" href="/testhome/showWeekly">查看周报管理</a>
+			</div>
+			<div id="Content-Main">
+				<form action="/testhome/findWeekly" method="post">
+					<div id="main">
+						<div class="demo">
+							请选择日期：<input type="text" class="input" name="datetime" id="pickdate">
+							<input type="submit" class="btn-success" value="search">
+						</div>
+					</div>
+				</form>
+
+				<table id="tableId" class="table" style="text-align: center;table-layout:fixed;width: 100%">
+					<tr>
+						<td>日期</td>
+						<td>名称</td>
+						<td>内容</td>
+						<td>审核状态</td>
+						<td>员工姓名</td>
+						<td>操作</td>
+					</tr>
+					{% for d in infos %}
+						<tr>
+							<td><input type="hidden" id="num" value="{{ d.id }}"></td>
+						</tr>
+						<tr class="success">
+							<td>{{ d.newtime }}</td>
+							<td>{{ d.weeklyName }}</td>
+							<td style="width: 100px;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ d.weeklyCont }}</td>
+							<td>{{ d.type }}</td>
+							<td>{{ d.username }}</td>
+							<td><a href="/testhome/updateWeekly/{{ d.id }}">修改 </a>
+								<a href="/testhome/delWeekly/{{ d.id }}"> 删除</a>
+								<a id="showDetails" href="/testhome/showWDetails/{{ d.id }}"><span style="visibility:visible">详情</span></a>
+							</td>
+						</tr>
+					{% endfor %}
+					<tr>
+						<td colspan="6">
+							<div class="pagination">
+								<div class="row-fluid">
+									<div class="span3 offset2" style="float: left; padding-right: 20px">
+										{% if pagination.has_prev %}
+											<a href="{{ pagination.prev_num }}">上一页</a>
+										{% endif %}
+									</div>
+									<div class="span3" style="float: left; padding-right: 20px">
+										<a href="">当前页: {{ pagination.page }} in {{ pagination.pages }}.</a>
+									</div>
+									<div class="span3" style="float: left; padding-right: 20px">
+										{{ pagination.links }}
+										{% if pagination.has_next %}
+											<a href="{{ pagination.next_num }}">下一页</a>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<script>
+			$("#pickdate").dateDropper({
+				animate: false,
+				format: 'Y-m-d',
+				maxYear: '2020'
+			});
+			window.onload = function(){
+				document.getElementById("showDetails").setAttribute("visibility","visible");
+				$("#showDetails").attr(visibility,visible);
+			}
+		</script>
+		<style type="text/css">
+			.demo {
+				margin: 30px auto 10px auto;
+				width: 320px
+			}
+
+			.input {
+				padding: 6px;
+				border: 1px solid #d3d3d3
+			}
+		</style>
+		<div class="Clear"></div>
+	</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 使用说明书
+{% endblock %}
+
+{% block content %}
+
+	<iframe id="framed" style="margin-top: 7%; background: honeydew;" width="100%" height="600px" text-align="center"
+			content="revealTrans(Duration=3,Transition=5)"
+			srcdoc="
+			<a href='/testhome/selupload'>选择上传文件</a>
+			<div style='margin:0 auto; width:80%; height:40%;'>
+				<h1>excel转换xml 使用说明书</h1>
+				1. 按如下格式需要准备xls文件</br></br>
+					<img  height='270' width='600' src='/static/icon/Excel.png'  alt='Excel样式' /></br></br>
+				2. 打开'Excel To Xml'下菜单进入'Excel To Xml'页面</br></br>
+				3. 选择正确格式文件单击'Excel To Xml'按钮，ok已完成</br></br>
+				4. 单击'查看Xml文件'，下载使用</br></br>
+			</div>
+	">
+	</iframe>
+{% endblock %}

@@ -1,0 +1,1796 @@
+<?xml version="1.0" ?>
+<testsuite>
+<testsuite name="应收外部商户结算单">
+<testcase name="应收外部商户结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应收外部商户结算单视觉效果</actions>
+<expectedresults>查看视觉效果： 结算单ID、公司主体名称、付款账户、付款金额、垫付交易款、垫付服务费、收款商户名称、收款账户、收款金额、日期、状态及对应银行流水信息</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="应收外部商户明细验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应收外部商户明细</actions>
+<expectedresults>具体查询条件，分页，明细金额累加和，和结算单金额一致</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>查询明细</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="应收外部商户结算单核对验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>结算单推送到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，再查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证应收外部商户流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>结算单和收付专户流水匹配</actions>
+<expectedresults>流水匹配成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>直接核对流水，无需垫付</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额足够</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单</actions>
+<expectedresults>今日处理昨日结算单</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>昨日结算单</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单如：代扣金额为90，流水也是90</actions>
+<expectedresults>流水核对成功，可以进行下一步操作</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额等于代扣金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单如：代扣金额为90，流水为80</actions>
+<expectedresults>需要垫付却少部分金额</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额小于代扣金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单如：代扣金额为90，流水为100</actions>
+<expectedresults>流水核对成功，可以进行下一步操作</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额大于代扣金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单如：轧差手续费为10</actions>
+<expectedresults>需要轧差手续费</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>有手续费，流水足够</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>直接核对流水</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>无手续费，流水足够</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）7">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单如：代扣金额为90，流水为80，手续费为10</actions>
+<expectedresults>1.垫付缺少部分金额2.需要轧差手续费</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水小于代扣金额，有手续费</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（实时）8">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看手续费和垫付款流水</actions>
+<expectedresults>内部流水，只记账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>手续费，垫付款</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付账务分录验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>支付平台往账务发起代扣交易</actions>
+<expectedresults>借：预收待清算账款贷：应收外部商户代扣账款</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>应收外部商户账款</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付账务分录验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管垫付代扣交易手续费转账</actions>
+<expectedresults>借：活期户（支付清算户）贷：活期户（手续费户）</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>垫付代扣手续费转账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付账务分录验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>垫付代扣交易款记账</actions>
+<expectedresults>借：应收外部商户代扣垫付账款贷:应收外部商户代扣账款</expectedresults>
+<execution_type>1</execution_type>
+</step>
+<step>
+<step_number>2</step_number>
+<actions>资金划拨记账</actions>
+<expectedresults>借：活期户（支付清算户）贷：活期户（垫付户）</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>垫付交易流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付资金流转验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看资金流转</actions>
+<expectedresults>垫付户－支付清算户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>垫付</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付资金流转验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看资金流转</actions>
+<expectedresults>手续费户－支付清算户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>手续费</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付回收验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>有多余流水</actions>
+<expectedresults>进行垫付回收</expectedresults>
+<execution_type>1</execution_type>
+</step>
+<step>
+<step_number>2</step_number>
+<actions>无多余流水</actions>
+<expectedresults>无法垫付回收，等待有交易余额后进行垫付回收</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水代扣完成后</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付回收分录验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>垫付代扣交易款记账</actions>
+<expectedresults>借：预收待清算账款贷:应收外部商户代扣垫付账款</expectedresults>
+<execution_type>1</execution_type>
+</step>
+<step>
+<step_number>2</step_number>
+<actions>资金划拨记账</actions>
+<expectedresults>借：活期户（垫付户）贷：活期户（支付清算户）</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>垫付回收</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>流水核对成功，可以进行下一步操作</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额等于代扣金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>垫付却少部分金额</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额小于代扣金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>处理完结算单，回收剩余全部金额</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额大于代扣金额，需要垫付回收，垫付回收金额不够</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>处理完结算单，进行垫付回收操作，垫付回收完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额大于代扣金额，需要垫付回收，剩余金额＝回收金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看商户对应的结算单</actions>
+<expectedresults>处理完结算单，进行垫付回收操作，垫付回收完成，挂着剩余流水</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水金额大于代扣金额，需要垫付回收，回收完有余额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>挂着的流水金额＋到账流水金额大于等于代扣金额</actions>
+<expectedresults>不需要垫付，继续处理业务</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水小于代扣金额</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）7">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>周五周六周日结算单</actions>
+<expectedresults>周一统一处理，流水存在一起打入情况</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>周五周六周日结算单</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）8">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>流水大于等于结算单金额</actions>
+<expectedresults>不需要垫付</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）9">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>流水小于结算单金额</actions>
+<expectedresults>垫付，由资金组勾选进行匹配。资管提示：您勾选的流水总额为XXXX元，小于代扣金额，将产生垫付，金额为XXXX元，是否确认垫付</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>匹配流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付规则验证（T+1）10">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资金组匹配流水错误</actions>
+<expectedresults>冲账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>流水匹配错误</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销应收外部商户结算单">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 银行存款 - 人民币存款 - 活期户(+)【10020101】贷 : 应收账款 - 代扣业务应收账款 - 应收外部商户代扣账款(-)【11220101】</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务推送数据到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销轧差手续费">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>需要一笔手续费转账，核销账务的资金调拨接口</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务推送数据到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="应付内部商户结算单">
+<testcase name="应付内部商户结算单视觉">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看垫付回收结算单视觉效果</actions>
+<expectedresults>查看视觉效果：1.结算单ID、公司主体名称、付款账户、付款金额、垫付交易款、垫付服务费、收款商户名称、收款账户、收款金额、日期、状态及对应银行流水信息</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>处理完应收外部商户结算单</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="应付内部商户结算单核对2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>结算单推送到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="应付内部商户明细验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应付内部商户明细</actions>
+<expectedresults>具体查询条件，分页，明细金额累加和，和结算单金额一致</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>查询明细</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证应付内部商户结算单资金流">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看垫付回收结算单资金流</actions>
+<expectedresults>收付专户-&gt;内部商户收款户，资管转账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 应付账款 - 代扣业务应付账款 - 应付商户代扣账款（-）【22020101】贷 : 银行存款 - 人民币存款 - 活期户（-）【10020101】</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="预充值代付结算单">
+<testcase name="预充值代付结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看预充值代付结算单视觉效果</actions>
+<expectedresults>查看视觉效果：结算单单号、公司名称、收款账号、收款金额、商户名称、商户付款账户、付款金额、时间、日期、银行流水等</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>结算单推送到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="应收商户预收代付结算单核对验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>结算单推送到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>收付专户流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="预充值代付结算单资金流验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看预充值代付结算单资金流</actions>
+<expectedresults>对内1.内部商户账户-&gt;收付专户（只查资金流核销）对外2.收付专户-&gt;支付公司账户，资管转账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流转</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="预充值代付结算单核销验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>应收商户预付代付账款借 : 银行存款 - 人民币存款 - 活期户(+)【10020101】贷 : 应收账款 - 支付业务应收账款 - 应收商户预收账款(-)【11220401】应付外部商户预付代付账款借 : 应付账款 - 支付业务应付账款 - 应付外部商户预付代付账款（-）【22020402】贷 : 银行存款 - 人民币存款 - 活期户（-）【10020101】</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>去账务查看核销记录</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="预充值代付金额">
+<testcase name="预充值代付金额验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>代付金额足够</actions>
+<expectedresults>代付成功</expectedresults>
+<execution_type>1</execution_type>
+</step>
+<step>
+<step_number>2</step_number>
+<actions>代付金额不足</actions>
+<expectedresults>代付失败，账务报错</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务查看</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="退款结算单">
+<testcase name="退款结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看退款结算单视觉效果</actions>
+<expectedresults>查看视觉效果：结算单ID、商户名称、代付金额、支付公司、收款账号、时间、代付每笔明细、状态、操作，资金明细</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单核对2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>收付专户的银行流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="资金流">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看退款结算单资金流</actions>
+<expectedresults>1.内部商户账户-&gt;收付专户（只查资金流核销）对外2.收付专户-&gt;支付公司账户，资管转账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流转</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 应付账款 - 支付业务应付账款 - 应付外部商户预付退款账款（-）【22020403】贷 : 银行存款 - 人民币存款 - 活期户（-）【10020101】</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="预收业务手续费结算单">
+<testcase name="预收业务手续费结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看预收业务手续费结算单视觉效果</actions>
+<expectedresults>查看视觉效果：结算单ID、商户名称、代付金额、支付公司、收款账号、时间、代付每笔明细、状态、操作，资金明细</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核对">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对成功</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>收付费预存户流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="资金流">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>收付费预存户资金流</actions>
+<expectedresults>收入户-&gt;手续费预存户，资管不需要转账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流转</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 银行存款 - 人民币存款 - 活期户贷 : 应收账款 - 支付业务应收账款 - 应收商户预收账款</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="预付三方手续费结算单">
+<testcase name="预付三方手续费结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看预付三方手续费结算单视觉效果</actions>
+<expectedresults>查看视觉效果：结算单ID、主体名称、手续费、收款公司名称、收款人账号、转账金额、结算单创建时间、状态、操作</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="月结手续费扣款逻辑验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单中月结手续费和手续费户打给支付公司手续费的银行流水</actions>
+<expectedresults>核销账务B202015 月结外部商户手续费核销</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>支付公司已打款</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="月结手续费差异账款资金流转">
+<steps/>
+<summary>支付公司已打款</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="月结手续费扣款逻辑验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>存在收入差异金额</actions>
+<expectedresults>手续费账户-&gt;收入户，复核成功后核销账务资金调拨接口</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>支付公司未打款</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核对">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对成功</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>手续费预存户的流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="资金流">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看预付三方手续费结算单资金流</actions>
+<expectedresults>手续费预存户－&gt;支付公司</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流转</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 应付账款 - 支付业务应付账款 - 应付外部商户预付手续费账款贷 : 银行存款 - 人民币存款 - 活期户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="月结外部商户手续费">
+<testcase name="月结外部商户手续费视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看月结外部商户手续费视觉效果</actions>
+<expectedresults>查看视觉效果：结算单ID、商户名称、代付金额、支付公司、收款账号、时间、代付每笔明细、状态、操作，资金明细</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核对">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对成功</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>手续费预存户的流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证资金流转">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看月结外部商户手续费结算单资金流</actions>
+<expectedresults>手续费预存户－&gt;支付公司</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流匹配</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 应付账款 - 支付业务应付账款 - 应付外部商户手续费贷 : 银行存款 - 人民币存款 - 活期户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="应收短期/长期借款账款结算单">
+<testcase name="应收短期/长期借款账款结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应收短期/长期借款账款结算单视觉效果</actions>
+<expectedresults>查看视觉效果：结算单ID、商户名称、代付金额、支付公司、收款账号、时间、代付每笔明细、状态、操作，资金明细</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核对">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对成功</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>垫付户流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="资金流">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应收短期/长期借款账款结算单资金流</actions>
+<expectedresults>公司账户－垫付户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流转</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 银行存款 - 人民币存款 – 活期户贷 : 长期借款 – 支付平台长期借款 – 借长期借款本金借 : 银行存款 - 人民币存款 – 活期户贷 : 短期借款 – 支付平台短期借款 – 借短期借款本金</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="应付短期/长期借款账款结算单">
+<testcase name="应付短期/长期借款账款结算单视觉验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应付短期/长期借款账款结算单视觉效果</actions>
+<expectedresults>查看视觉效果：结算单ID、商户名称、代付金额、支付公司、收款账号、时间、代付每笔明细、状态、操作，资金明细</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看结算单导入正常成功后的状态</actions>
+<expectedresults>状态显示：未对账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未对账</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核对">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>核对结算单</actions>
+<expectedresults>核对成功，各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对成功</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分配按钮，分配成功后，查看结算单状态</actions>
+<expectedresults>状态显示为：未分润</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>未分润</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>点击账户分润按钮，分润操作完成后，付款申请未提交和复核，查看结算单状态</actions>
+<expectedresults>状态显示为：分润中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>分润中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>到付款申请中，点击提交申请，然后到对内付款申请复核中，点击复核，查看结算单状态</actions>
+<expectedresults>状态显示为：汇款中</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>汇款中</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="验证结算单状态6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>汇款中的结算单，到对外付款申请复核中，点击复核，复核申请完成后，查看结算单状态</actions>
+<expectedresults>状态显示为：已完成</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>已完成</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="流水">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>垫付户流水</actions>
+<expectedresults>各信息均正确</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>核对后查看流水</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="资金流">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看应付短期/长期借款账款结算单资金流</actions>
+<expectedresults>垫付户-&gt;公司账户，资管转账</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流转</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="核销">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>资管进行核销，然后查看账务系统数据库各账户信息正确性</actions>
+<expectedresults>借 : 长期借款 – 支付平台长期借款 – 借长期借款本金贷 : 银行存款 - 人民币存款 – 活期户借 : 短期借款 – 支付平台短期借款 – 借短期借款本金贷 : 银行存款 - 人民币存款 – 活期户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账务系统推送结算单到资管</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="结算单推送时间">
+<testcase name="结算单推送时间验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>代扣应收外部商户结算单 </actions>
+<expectedresults>T+1 </expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务对账触发 </summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>代扣应付内部商户结算单</actions>
+<expectedresults>T+1 </expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务对账触发 </summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证3">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>垫付回收结算单 </actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证4">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>预付代付外部商户结算单</actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证5">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>预收代付内部商户结算单</actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证6">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>预付退款外部商户结算单</actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证7">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>预收退款内部商户结算单 </actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证8">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>应收内部商户预存手续费</actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证9">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>应付预付外部商户手续费   </actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证10">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>月结外部商户手续费</actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证11">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>应收借款账款 </actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="结算单推送时间验证12">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>应付还款账款</actions>
+<expectedresults>实时</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>业务触发</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="垫付户">
+<testcase name="垫付户添加验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加垫付户，输入正确的信息</actions>
+<expectedresults>添加成功</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>某一公司主体无垫付户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付户添加验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加垫付户，输入正确的信息</actions>
+<expectedresults>添加失败，一个公司主体下只能添加一个垫付户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>某一公司主体之前添加过垫付户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="垫付户添加验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看垫付户账户规则</actions>
+<expectedresults>1.收入户—垫付户（垫付资金拨付）2.垫付户---收入户（垫付资金归集）3.垫付户---支付清算户（垫付交易款、垫付支付手续费）4.利息留存户—垫付户（垫付手续费回收）5.支付清算户—垫付户（垫付交易款回收）</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>垫付户添加成功</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="收入户">
+<testcase name="收入户添加验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加收入户，输入正确的信息</actions>
+<expectedresults>添加成功</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>某一公司主体无收入户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="收入户添加验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加收入户，输入正确的信息</actions>
+<expectedresults>添加失败，一个公司主体下只能添加一个收入户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>某一公司主体之前添加过收入户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="收入户账户规则验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>收入户账户规则</actions>
+<expectedresults>收入户---内部账户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>添加公司主体</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="支付清算户">
+<testcase name="支付清算户添加验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加支付清算户，输入正确的信息</actions>
+<expectedresults>添加成功</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>某一公司主体无支付清算户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付清算户添加验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加支付清算户，输入正确的信息</actions>
+<expectedresults>添加失败，一个公司主体下只能添加一个支付清算户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>某一公司主体之前添加过支付清算户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付清算户账户余额验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看支付清算户账户余额</actions>
+<expectedresults>支付清算户账户余额当天必须清零</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>当日 验证</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付清算户资金流程验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>支付清算户资金流程</actions>
+<expectedresults> 资金流入支付公司账户—支付清算户（代收交易款待清算）A支付清算户---B支付清算户（代收代付退款）垫付户---支付清算户（垫付流程）2 资金流出支付清算户---商户三方支付结算户（代付交易款）支付清算户---支付公司账户（代付退款）支付清算户---垫付户（垫付交易款回收）</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>支付清算户添加成功</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="商户三方结算户">
+<testcase name="商户三方结算户资金流程">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>商户三方结算户资金流程</actions>
+<expectedresults> 商户三方结算户按照公司主体下内部商户维度配置，每个内部商户和商户结算户一一对应关系2 商户三方结算户账户余额，保证当天清零3 商户三方结算户转入资金类型：公司主体支付清算户的交易款</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>商户三方结算户成功添加</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="商户三方结算户添加验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加商户三方结算户，输入正确的信息</actions>
+<expectedresults>添加成功</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>添加一个内部商户
+未添加商户结算户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="商户三方结算户添加验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加商户三方结算户，输入正确的信息</actions>
+<expectedresults>无法添加，内部商户和商户结算户一一对应关系</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>添加一个内部商户
+已添加过商户结算户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付清算户账户余额验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看支付清算户账户余额</actions>
+<expectedresults>商户三方结算户账户余额，保证当天清零</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>当日 验证</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="商户三方结算户账户规则验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>商户三方结算户账户规则</actions>
+<expectedresults>. 支付清算户—商户三方结算户2. 商户三方结算户---商户还款账户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>商户三方结算户成功添加</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+<testsuite name="支付手续费留存户">
+<testcase name="商户三方结算户添加验证1">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加支付手续费留存户，输入正确的信息</actions>
+<expectedresults>添加成功</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>添加一个内部商户
+未添加支付手续费留存户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="商户三方结算户添加验证2">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>添加支付手续费留存户，输入正确的信息</actions>
+<expectedresults>无法添加，每个支付手续费预存户和内部商户一一对应</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>添加一个内部商户
+已添加过支付手续费留存户</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付手续费留存户资金流程">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>支付手续费预存户资金流程</actions>
+<expectedresults>支付手续费留存户按照公司主体下内部商户维度配置，每个支付手续费预存户和内部商户一一对应</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>资金流</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付清算户账户余额验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>查看支付手续费留存户账户余额</actions>
+<expectedresults>手续费预存户账户余额，不清零</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>当日 验证</summary>
+<preconditions></preconditions>
+</testcase>
+<testcase name="支付手续费留存户账户规则验证">
+<steps>
+<step>
+<step_number>1</step_number>
+<actions>支付手续费留存户账户规则</actions>
+<expectedresults>1.手续费预存户---支付公司2.手续费预存户---基本户3.公司主体收入户---手续费预存户</expectedresults>
+<execution_type>1</execution_type>
+</step>
+</steps>
+<summary>账户规则</summary>
+<preconditions></preconditions>
+</testcase>
+</testsuite>
+</testsuite>

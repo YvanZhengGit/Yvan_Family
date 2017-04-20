@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<testcases>
+<testcase internalid="4005" name="应收外部商户结算单视觉验证">
+	<node_order><![CDATA[1]]></node_order>
+	<externalid><![CDATA[1]]></externalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[账务系统推送结算单到资管]]></summary>
+	<preconditions><![CDATA[]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[查看应收外部商户结算单视觉效果]]></actions>
+	<expectedresults><![CDATA[查看视觉效果： 结算单ID、公司主体名称、付款账户、付款金额、垫付交易款、垫付服务费、收款商户名称、收款账户、收款金额、日期、状态及对应银行流水信息]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testcases>

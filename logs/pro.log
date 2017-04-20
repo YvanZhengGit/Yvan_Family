@@ -1,0 +1,134 @@
+2017 11:28:34 INFO  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2017 11:28:37 ERROR Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/Users/Administrator/zyf/EmailBJ/app/auth/views.py", line 847, in page_not_found
+    return render_template('404.html', u=session['username']), 404
+  File "/Library/Python/2.7/site-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'username'
+2017 11:28:37 INFO 127.0.0.1 - - [20/Apr/2017 11:28:37] "GET / HTTP/1.1" 500 -
+2017 11:28:37 ERROR Error on request:
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 180, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 168, in execute
+    application_iter = app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1410, in handle_exception
+    return handler(e)
+  File "/Users/Administrator/zyf/EmailBJ/app/auth/views.py", line 853, in server_interval
+    return render_template('500.html', u=session['username']), 500
+  File "/Library/Python/2.7/site-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'username'
+2017 11:28:45 ERROR Exception on / [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1370, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1330, in handle_http_exception
+    return handler(e)
+  File "/Users/Administrator/zyf/EmailBJ/app/auth/views.py", line 847, in page_not_found
+    return render_template('404.html', u=session['username']), 404
+  File "/Library/Python/2.7/site-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'username'
+2017 11:28:45 INFO 127.0.0.1 - - [20/Apr/2017 11:28:45] "GET / HTTP/1.1" 500 -
+2017 11:28:45 ERROR Error on request:
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 180, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 168, in execute
+    application_iter = app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1836, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1820, in wsgi_app
+    response = self.make_response(self.handle_exception(e))
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1410, in handle_exception
+    return handler(e)
+  File "/Users/Administrator/zyf/EmailBJ/app/auth/views.py", line 853, in server_interval
+    return render_template('500.html', u=session['username']), 500
+  File "/Library/Python/2.7/site-packages/werkzeug/local.py", line 368, in <lambda>
+    __getitem__ = lambda x, i: x._get_current_object()[i]
+KeyError: 'username'
+2017 11:30:32 INFO 127.0.0.1 - - [20/Apr/2017 11:30:32] "GET /testhome HTTP/1.1" 301 -
+2017 11:30:32 INFO 127.0.0.1 - - [20/Apr/2017 11:30:32] "GET /testhome/ HTTP/1.1" 200 -
+2017 11:30:32 INFO 127.0.0.1 - - [20/Apr/2017 11:30:32] "GET /static/css/login.css HTTP/1.1" 304 -
+2017 11:30:32 INFO 127.0.0.1 - - [20/Apr/2017 11:30:32] "GET /static/icon/login3.jpg HTTP/1.1" 304 -
+2017 11:30:32 INFO 127.0.0.1 - - [20/Apr/2017 11:30:32] "GET /favicon.ico HTTP/1.1" 404 -
+2017 11:30:46 INFO 127.0.0.1 - - [20/Apr/2017 11:30:46] "GET /testhome/ HTTP/1.1" 200 -
+2017 11:30:46 INFO 127.0.0.1 - - [20/Apr/2017 11:30:46] "GET /static/css/login.css HTTP/1.1" 304 -
+2017 11:30:46 INFO 127.0.0.1 - - [20/Apr/2017 11:30:46] "GET /static/icon/login3.jpg HTTP/1.1" 304 -
+2017 11:30:46 INFO 127.0.0.1 - - [20/Apr/2017 11:30:46] "GET /testhome/ HTTP/1.1" 200 -
+2017 11:30:51 DEBUG admin登录2017-04-20 11:30:51
+2017 11:30:51 INFO 127.0.0.1 - - [20/Apr/2017 11:30:51] "POST /testhome/ HTTP/1.1" 200 -
+2017 11:30:51 INFO 127.0.0.1 - - [20/Apr/2017 11:30:51] "GET /static/css/index.css HTTP/1.1" 304 -
+2017 11:30:51 INFO 127.0.0.1 - - [20/Apr/2017 11:30:51] "GET /static/icon/bgi.jpeg HTTP/1.1" 304 -
+2017 11:30:54 INFO 127.0.0.1 - - [20/Apr/2017 11:30:54] "GET /testhome/search HTTP/1.1" 200 -
+2017 11:30:54 INFO 127.0.0.1 - - [20/Apr/2017 11:30:54] "GET /static/css/search.css HTTP/1.1" 304 -
+2017 11:30:54 INFO 127.0.0.1 - - [20/Apr/2017 11:30:54] "GET /static/icon/bgi.jpeg HTTP/1.1" 304 -
+2017 11:30:56 INFO 127.0.0.1 - - [20/Apr/2017 11:30:56] "POST /testhome/search HTTP/1.1" 302 -
+2017 11:30:56 ERROR Exception on /testhome/info/1 [GET]
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1817, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1477, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1381, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1475, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1461, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/Administrator/zyf/EmailBJ/app/auth/views.py", line 711, in show_page
+    _t['time'] = time.strftime('%Y-%m-%d', time.localtime(posts[0].__dict__['emailtime']))
+IndexError: list index out of range
+2017 11:30:56 INFO 127.0.0.1 - - [20/Apr/2017 11:30:56] "GET /testhome/info/1 HTTP/1.1" 500 -
+2017 11:30:56 INFO 127.0.0.1 - - [20/Apr/2017 11:30:56] "GET /testhome/static/css/500.css HTTP/1.1" 404 -
+2017 11:31:08 INFO 127.0.0.1 - - [20/Apr/2017 11:31:08] "POST /testhome/search HTTP/1.1" 302 -
+2017 11:31:08 INFO 127.0.0.1 - - [20/Apr/2017 11:31:08] "GET /testhome/info/1 HTTP/1.1" 200 -
+2017 11:31:08 INFO 127.0.0.1 - - [20/Apr/2017 11:31:08] "GET /static/js/tableExport.js HTTP/1.1" 200 -
+2017 11:31:08 INFO 127.0.0.1 - - [20/Apr/2017 11:31:08] "GET /static/css/show.css HTTP/1.1" 200 -
+2017 11:31:09 INFO 127.0.0.1 - - [20/Apr/2017 11:31:09] "GET /static/js/jquery.base64.js HTTP/1.1" 304 -
+2017 11:31:09 INFO 127.0.0.1 - - [20/Apr/2017 11:31:09] "GET /static/js/html2canvas.js HTTP/1.1" 304 -
+2017 11:31:11 INFO 127.0.0.1 - - [20/Apr/2017 11:31:11] "GET /testhome/info/2 HTTP/1.1" 200 -
+2017 11:31:11 INFO 127.0.0.1 - - [20/Apr/2017 11:31:11] "GET /static/js/html2canvas.js HTTP/1.1" 304 -
+2017 11:31:11 INFO 127.0.0.1 - - [20/Apr/2017 11:31:11] "GET /static/js/jquery.base64.js HTTP/1.1" 304 -
+2017 11:31:15 INFO 127.0.0.1 - - [20/Apr/2017 11:31:15] "GET /testhome/info/3 HTTP/1.1" 200 -
+2017 11:31:24 INFO 127.0.0.1 - - [20/Apr/2017 11:31:24] "GET /testhome/search HTTP/1.1" 200 -
+2017 11:32:02 INFO 127.0.0.1 - - [20/Apr/2017 11:32:02] "GET /testhome/daily HTTP/1.1" 200 -
+2017 11:32:02 INFO 127.0.0.1 - - [20/Apr/2017 11:32:02] "GET /static/icon/bj.jpg HTTP/1.1" 200 -
+2017 11:32:02 INFO 127.0.0.1 - - [20/Apr/2017 11:32:02] "GET /static/daily/daily.css HTTP/1.1" 200 -
+2017 11:32:04 INFO 127.0.0.1 - - [20/Apr/2017 11:32:04] "GET /testhome/weekly HTTP/1.1" 200 -
+2017 11:32:04 INFO 127.0.0.1 - - [20/Apr/2017 11:32:04] "GET /static/icon/bj2.jpeg HTTP/1.1" 200 -
+2017 11:32:06 INFO 127.0.0.1 - - [20/Apr/2017 11:32:06] "GET /testhome/daily HTTP/1.1" 200 -
+2017 11:32:08 INFO 127.0.0.1 - - [20/Apr/2017 11:32:08] "GET /testhome/addDaily HTTP/1.1" 200 -
+2017 11:32:12 INFO 127.0.0.1 - - [20/Apr/2017 11:32:12] "POST /testhome/add_daily HTTP/1.1" 302 -
+2017 11:32:12 INFO 127.0.0.1 - - [20/Apr/2017 11:32:12] "GET /testhome/showDaily HTTP/1.1" 302 -
+2017 11:32:12 INFO 127.0.0.1 - - [20/Apr/2017 11:32:12] "GET /testhome/showDaily/info/1 HTTP/1.1" 200 -
+2017 11:32:12 INFO 127.0.0.1 - - [20/Apr/2017 11:32:12] "GET /static/daily/jquery-1.12.3.min.js HTTP/1.1" 200 -
+2017 11:32:12 INFO 127.0.0.1 - - [20/Apr/2017 11:32:12] "GET /static/daily/datedropper.min.js HTTP/1.1" 200 -
+2017 11:32:12 INFO 127.0.0.1 - - [20/Apr/2017 11:32:12] "GET /static/daily/datedropper.css HTTP/1.1" 200 -
+2017 11:32:13 INFO 127.0.0.1 - - [20/Apr/2017 11:32:13] "GET /static/daily/timedropper.min.css HTTP/1.1" 200 -
+2017 11:32:17 INFO 127.0.0.1 - - [20/Apr/2017 11:32:17] "GET /testhome/updateDaily/40 HTTP/1.1" 200 -
+2017 11:32:19 INFO 127.0.0.1 - - [20/Apr/2017 11:32:19] "POST /testhome/update_daily HTTP/1.1" 302 -
+2017 11:32:19 INFO 127.0.0.1 - - [20/Apr/2017 11:32:19] "GET /testhome/showDaily HTTP/1.1" 302 -
+2017 11:32:19 INFO 127.0.0.1 - - [20/Apr/2017 11:32:19] "GET /testhome/showDaily/info/1 HTTP/1.1" 200 -
+2017 11:32:22 INFO 127.0.0.1 - - [20/Apr/2017 11:32:22] "GET /testhome/showDetails/40 HTTP/1.1" 200 -
+2017 11:32:29 INFO 127.0.0.1 - - [20/Apr/2017 11:32:29] "POST /testhome/update_daily HTTP/1.1" 302 -
+2017 11:32:29 INFO 127.0.0.1 - - [20/Apr/2017 11:32:29] "GET /testhome/showDaily HTTP/1.1" 302 -
+2017 11:32:29 INFO 127.0.0.1 - - [20/Apr/2017 11:32:29] "GET /testhome/showDaily/info/1 HTTP/1.1" 200 -

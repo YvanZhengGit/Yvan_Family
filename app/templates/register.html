@@ -1,0 +1,15 @@
+{% block title %}
+	<title>蜜蜂汇金 - 测试中心 注册</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/login.css') }}"/>
+{% endblock %}
+
+{% block content %}
+	<div id="login">
+		<h1>regist</h1>
+		<form action="/testhome/regist" method="post">
+			<input type="text" required="required" placeholder="用户名" name="username">
+			<input type="password" required="required" placeholder="密码" name="password">
+			<button class="but" type="submit">注册</button>
+		</form>
+	</div>
+{% endblock %}

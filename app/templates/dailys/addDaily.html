@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+	测试中心 - 日报
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='daily/daily.css') }}"/>
+	<link rel="stylesheet" href="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<div id="Container">
+		<div id="Header">
+			<div id="logo"></div>
+		</div>
+		<div id="Content">
+			<div id="Content-Left">
+				<a style="margin: 20px 0 0 20px" href="/testhome/addDaily">填写日报管理</a></br>
+				<a style="margin: 20px 0 0 20px" href="/testhome/showDaily">查看日报管理</a>
+			</div>
+			<div id="Content-Main" style="text-align: center;">
+				<form action="/testhome/add_daily" method="post">
+					<h3>新建日报</h3>
+					日报标题：<input name="dailyName" type="type"></br></br>
+
+					<textarea name="dailyCont" rows="15" cols="80"></textarea></br></br>
+					<input type="submit" class="btn btn-success" value="提交">
+				</form>
+			</div>
+		</div>
+		<div class="Clear"></div>
+	</div>
+	<script>
+		document.getElementById("dailycont").value = "内容......"
+	</script>
+{% endblock %}

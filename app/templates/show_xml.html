@@ -1,0 +1,26 @@
+
+{% block content %}
+
+	<table id="tableID" class="table" style="margin-top: 100px; margin-left: 10%; width: 80%; text-align: center; color: #fff;">
+		<tr>
+			<th>文件名</th>
+			<th>文件位置</th>
+			<th>操作</th>
+		</tr>
+
+		{% for file in filecontents %}
+				<input type="hidden" name="username" id="username" value="{{ file.oldmn }}"><br/>
+				<tr class="active">
+					<td>{{ file.name }}</td>
+					<td>{{ file.filepath }}</td>
+					<td>
+						<button><a style="text-decoration: none;" href="http://172.16.22.151/xml"><span
+								class="label label-info">下载</span></a></button>
+						<button><a style="text-decoration: none;" href="/testhome/clearxmlone/"><span
+								class="label label-info">删除</span></a></button>
+					</td>
+				</tr>
+		{% endfor %}
+	</table>
+	<a href="/testhome/show_upload" style="margin:0 0 10% 40%; color: #fff;">清除文件</a>
+{% endblock %}

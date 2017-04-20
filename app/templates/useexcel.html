@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 使用说明书
+{% endblock %}
+
+{% block content %}
+
+	<iframe id="framed" style="margin-top: 7%; background: honeydew;" width="100%" height="600px" text-align="center"
+			content="revealTrans(Duration=3,Transition=5)"
+			srcdoc="
+			<a href='/testhome/seluploadexcel' type='button' class='btn btn-success'>选择上传文件</a>
+			<div style='margin:0 auto; width:80%; height:40%;'>
+				<h1>xml转换excel 使用说明书</h1>
+				1. 按如下格式需要准备xml文件：</br></br>
+				<textarea rows='23' cols='150' readonly='readonly'>
+					<?xml version='1.0' ?>
+						<testsuite>
+							<testsuite name='应收外部商户结算单'>
+								<testcase name='应收外部商户结算单视觉验证'>
+									<steps>
+										<step>
+											<step_number>1</step_number>
+											<actions>查看应收外部商户结算单视觉效果</actions>
+											<expectedresults>结算单ID、公司主体名称、付款账户、付款金额、垫付交易款、垫付服务费、</br>
+																收款商户名称、收款账户、收款金额、日期、状态及对应银行流水信息
+											</expectedresults>
+											<execution_type>1</execution_type>
+										</step>
+									</steps>
+									<summary>账务系统推送结算单到资管</summary>
+									<preconditions></preconditions>
+								</testcase>
+								<testsuite name='应收外部商户结算单'>
+									...
+								</testcase>
+							</testsuite>
+						</testsuite>
+				</textarea>
+				</br></br></br>
+				2. 打开'Excel To Xml'下菜单进入'Xml To Excel'页面</br></br>
+				3. 选择正确格式文件单击'Xml To Excel'按钮，ok已完成</br></br>
+				4. 单击'查看Excecl文件'，选择下载</br></br>
+			</div>
+	">
+	</iframe>
+{% endblock %}

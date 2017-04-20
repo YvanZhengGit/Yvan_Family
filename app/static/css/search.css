@@ -1,0 +1,29 @@
+*{
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    color: black;
+}
+body{
+    background-image: url("../icon/bgi.jpeg");
+    background-repeat: no-repeat;
+    background-size:100%;
+    padding-top: 20%;
+    padding-left: 40%;
+}
+h1{
+    padding-bottom: 30px;
+}
+input{
+    border: 2px #a9c6c9 solid;
+    width: 90px;
+    color: black;
+}
+input:last-child{
+    border-radius: 18px;
+    border: #7b9ebd 1px solid;
+    font-size: 18px;
+    cursor: hand;
+    color: black;
+    padding-top: 2px;
+}

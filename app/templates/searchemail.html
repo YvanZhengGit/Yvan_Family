@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+	蜜蜂汇金 - 邮件报警查询
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{ url_for('static',filename='css/search.css') }}"/>
+	<h1>邮件报警查询</h1>
+	<form method="post">
+		请输入起始年份：{{ form.start_year() }}请输入终止年份：{{ form.end_year() }}<br><br>
+		请输入起始月份：{{ form.start_month() }}请输入终止月份：{{ form.end_month() }}<br><br>
+		请输入起始日期：{{ form.start_day() }}请输入终止日期：{{ form.end_day() }}<br><br>
+		{{ form.submit() }}
+	</form>
+{% endblock %}
